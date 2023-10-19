@@ -7,7 +7,14 @@ Thoughts.init({
     type: DataTypes.STRING, // String DataType
     allowNull: false,
     primartKey: true,
-    }
-    
+    },
 
-})
+    user_id:{
+        type: DataType.STRING,
+        allowNull: false,
+        model:'user'
+    },
+
+});
+
+module.exports = Thoughts;
