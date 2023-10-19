@@ -1,0 +1,5 @@
+--DROP DATABASE
+DROP DATABASE IF EXISTS socialNetwork_db;
+
+--CREATE DATABASE
+CREATE DATABASE socialNetwork_db;
