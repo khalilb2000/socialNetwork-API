@@ -1,0 +1,19 @@
+{
+    "name": "your-project-name",
+    "version": "1.0.0",
+    "description": "social",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon server.js",
+        "seed": "node ./seeds/seed.js"
+    },
+    "dependencies": {
+        "mongoose": "^7.6.3",
+        "mysql": "^2.18.1",
+        "mysql2": "^3.6.2",
+        "sequelize": "^6.33.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.22"
+    }
+}

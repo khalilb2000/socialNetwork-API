@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connections");
 
-class email extends Model {}
+class Email extends Model {}
 
-email.init(
+Email.init(
     {
     //defining 'id'
     id:{
@@ -18,7 +18,7 @@ email.init(
     },
 },
 {
-    sequalize,
+    sequelize,
     timestamps: true,
     freeTableName: true,
     underscored: true,
@@ -27,4 +27,4 @@ email.init(
 
 );
 
-module.exports = email;
+module.exports = Email;

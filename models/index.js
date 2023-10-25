@@ -1,20 +1,24 @@
-const email = require('./Email');
-const friends = require('/friends');
-const thoughts = require('./Thoughts');
-const user = require('./Users');
+const Email = require('./Email');
+const Friends = require('./Friends');
+const Thoughts = require('./Thoughts');
+const User = require('./Users');
 
 //friends belongs to user
-friends.belongsTo(user,{
+Friends.belongsTo(User,{
     foreignKey: 'user_id',
 });
 //user has many friends
-friends.belongsToMany(friends,{
-    foreignKey: 'friends_id',
+User.hasmany(Friends, {
+    foreignKey: 'uder_id',
 });
+//thoughts belongs to user
+Thoughts.belongsTo(User,{
+    foreignKey: 'user_id' });
 
 module.exports = {
-    email,
-    friends,
-    user,
-    thoughts,
-};
+    User,
+    Thoughts,
+    Email,
+    Friends,
+
+}

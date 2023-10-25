@@ -1,37 +1,20 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connections");
+const{ Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connections');
 
-class friends extends Model {}
+class Friends extends Model {}
 
-friends.init({
-//defining friends id
+Friends.init({
+    id:{
+        type: DataType.STRING,
+        allowNull: false,
+        primaryKey: true,
+    },
 
-id: {
-    Type: DataTypes.STRING,
-    allowNull: false,
-    primaryKey: true,
-    autoIncrement:true,
-},
-
-friends_name: {
-    allowNull:false,
-    Type: DataType.STRING,
-},
-friend_count:{
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    defaultValue: 0,
-    validate: {
-        isNumeric: true,
-    }
+    friends_name:{
+        type: DataType.String,
+        allowNull: false,
+        primaryKey: true,
 }
- 
-},
-{
-    sequelize,
-    timestamps: false, 
-    freezeTableName: true, 
-    uderscored: true,
-    modelName: 'friends'
-}
-);
+});
+
+module.exports = Friends;

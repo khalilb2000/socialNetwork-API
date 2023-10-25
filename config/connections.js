@@ -1,14 +1,14 @@
-require('dotenv').config();
-const Sequelize = require('sequelize');
+const mongoose = require("mongoose");
 
-const sequelize = process.env.JAWSDB_URL
-? new Sequelize(process.env.JAWSDB_URL)
-: new Sequelize(process.env.DB_NAME, process.env.DN_USER,process.env.DB_PW, {
-    host:'localhost',
-    dialect:'mysql',
-    dialectOptions:{
-        decimalNumbers: true,
-    },
-});
-ongoose
-module.exports = sequelize;
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost:27017/social-network",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
+
+// Use this to log mongo queries being executed.
+mongoose.set("debug", true);
+
+module.exports = mongoose.connection;
