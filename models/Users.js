@@ -1,17 +1,47 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connections');
-const Thoughts = require('./Thoughts');
+const { Schema, model } = require("mongoose");
 
-class Users extends Model{}
+const UserSchema = new Schema(
+  {
+    username: {
+      type: String,
+      unique: true,
+      trim: true,
+      required: "Username is Required",
+    },
 
-Users.init({
-    id:{
-        type: DataTypes.STRING,
-        allowNull: false,
-        primaryKey: true,
-        
+    email: {
+      type: String,
+      unique: true,
+      required: "Username is Required",
+      match: [/.+@.+\..+/],
+    },
 
-    }
-})
+    thoughts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Thought",
+      },
+    ],
 
-module.exports = Users;
+    friends: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+    id: false,
+  }
+);
+
+UserSchema.virtual("friendCount").get(function () {
+  return this.friends.length;
+});
+
+const User = model("User", UserSchema);
+
+module.exports = User;

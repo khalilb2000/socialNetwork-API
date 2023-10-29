@@ -1,30 +1,14 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connections");
+const mongoose = require('mongoose');
 
-class Email extends Model {}
+// Define the schema for the "Email" collection
+const emailSchema = new mongoose.Schema({
+  email_name: {
+    type: String,
+  },
+  // Add more fields as needed
+});
 
-Email.init(
-    {
-    //defining 'id'
-    id:{
-        type: DataTypes.STRING,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
-    },
-
-    email_name:{
-        type: DataTypes.STRING,
-    },
-},
-{
-    sequelize,
-    timestamps: true,
-    freeTableName: true,
-    underscored: true,
-    modelName: 'category',
-  }
-
-);
+// Create the "Email" model
+const Email = mongoose.model('Email', emailSchema);
 
 module.exports = Email;
