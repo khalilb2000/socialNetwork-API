@@ -1,3 +1,5 @@
+# socialNetwork-API
+
 Social Networking Platform
 Description
 This is a social networking platform built with Node.js, Express, and MongoDB. It allows users to create and share thoughts, connect with friends, and interact with other users.
